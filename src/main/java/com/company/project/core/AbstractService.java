@@ -24,6 +24,7 @@ public abstract class AbstractService<T> implements Service<T> {
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }
 
+    @Override
     public void save(T model) {
         mapper.insertSelective(model);
     }

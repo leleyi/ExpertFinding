@@ -33,6 +33,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -44,7 +45,9 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
 
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
     @Value("${spring.profiles.active}")
-    private String env;//当前激活的配置文件
+
+    //当前激活的配置文件
+    private String env;
 
     //使用阿里 FastJson 作为JSON MessageConverter
     @Override
@@ -67,6 +70,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
         exceptionResolvers.add(new HandlerExceptionResolver() {
+            @Override
             public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception e) {
                 Result result = new Result();
                 if (e instanceof ServiceException) {//业务失败的异常，如“账号或密码错误”
@@ -153,20 +157,30 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
             return false;
         }
         List<String> keys = new ArrayList<String>(request.getParameterMap().keySet());
-        keys.remove("sign");//排除sign参数
-        Collections.sort(keys);//排序
+
+        //排除sign参数
+        keys.remove("sign");
+        //排序
+        Collections.sort(keys);
 
         StringBuilder sb = new StringBuilder();
         for (String key : keys) {
-            sb.append(key).append("=").append(request.getParameter(key)).append("&");//拼接字符串
+            //拼接字符串
+            sb.append(key).append("=").append(request.getParameter(key)).append("&");
         }
         String linkString = sb.toString();
-        linkString = StringUtils.substring(linkString, 0, linkString.length() - 1);//去除最后一个'&'
 
-        String secret = "Potato";//密钥，自己修改
-        String sign = DigestUtils.md5Hex(linkString + secret);//混合密钥md5
+        //去除最后一个'&'
+        linkString = StringUtils.substring(linkString, 0, linkString.length() - 1);
 
-        return StringUtils.equals(sign, requestSign);//比较
+        //密钥，自己修改
+        String secret = "crazy";
+
+        //混合密钥md5
+        String sign = DigestUtils.md5Hex(linkString + secret);
+
+        //比较
+        return StringUtils.equals(sign, requestSign);
     }
 
     private String getIpAddress(HttpServletRequest request) {
@@ -192,5 +206,18 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         }
 
         return ip;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/");
+
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+        super.addResourceHandlers(registry);
     }
 }
