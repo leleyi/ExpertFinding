@@ -13,13 +13,20 @@ public class ESTester {
 
     RestHighLevelClient client = ESClient.getClient();
     String index = "person";
-    String type = "man";
+//    String type = "man";
+
+//    @Test
+//    public void testClient() {
+//        this.client = ();
+//        System.out.println(client);
+//    }
+
 
     @Test
-    public void createIndx() throws Exception {
+    public void createIndex() throws Exception {
         // 1.准备关于索引的setting
         Settings.Builder settings = Settings.builder()
-                .put("number_of_shards", 2)
+                .put("number_of_shards", 3)
                 .put("number_of_replicas", 1);
 
         // 2.准备关于索引的mapping
@@ -32,21 +39,14 @@ public class ESTester {
                 .startObject("age")
                 .field("type", "integer")
                 .endObject()
-                .startObject("birthday")
-                .field("type", "date")
-                .field("format", "yyyy-MM-dd")
-                .endObject()
                 .endObject()
                 .endObject();
         // 3.将settings和mappings 封装到到一个Request对象中
         CreateIndexRequest request = new CreateIndexRequest(index)
                 .settings(settings)
-                .mapping(type, mappings);
+                .mapping("man", mappings);
         // 4.使用client 去连接ES
         CreateIndexResponse response = client.indices().create(request, RequestOptions.DEFAULT);
-
         System.out.println("response:" + response.toString());
-
     }
-
 }
