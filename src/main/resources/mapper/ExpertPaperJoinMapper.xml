@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.ExpertPaperJoinMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.ExpertPaperJoin">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="EXPERT_ID" jdbcType="VARCHAR" property="expertId" />
+    <result column="expert_name" jdbcType="VARCHAR" property="expertName" />
+    <result column="expert_role" jdbcType="INTEGER" property="expertRole" />
+    <result column="PAPER_ID" jdbcType="VARCHAR" property="paperId" />
+    <result column="paper_name" jdbcType="VARCHAR" property="paperName" />
+  </resultMap>
+</mapper>

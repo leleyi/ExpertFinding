@@ -2,6 +2,10 @@ package com.conpany.project;
 
 
 import com.company.project.Application;
+import com.company.project.model.Paper;
+import com.company.project.service.PaperService;
+import com.company.project.service.impl.PaperServiceImpl;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -16,6 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Rollback
 public abstract class Tester {
+
+    public Tester() {
+    }
 
 }
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.ExpertMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Expert">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="EXPERT_ID" jdbcType="VARCHAR" property="expertId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="hometown" jdbcType="VARCHAR" property="hometown" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="career" jdbcType="VARCHAR" property="career" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="DWDZ" jdbcType="VARCHAR" property="dwdz" />
+    <result column="paper" jdbcType="VARCHAR" property="paper" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="ZJDM" jdbcType="VARCHAR" property="zjdm" />
+    <result column="ZZDH" jdbcType="VARCHAR" property="zzdh" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="ability" jdbcType="VARCHAR" property="ability" />
+    <result column="subject1" jdbcType="VARCHAR" property="subject1" />
+    <result column="subject2" jdbcType="VARCHAR" property="subject2" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="HIGHADMIN_CODE" jdbcType="VARCHAR" property="highadminCode" />
+    <result column="STATE" jdbcType="VARCHAR" property="state" />
+    <result column="MZ" jdbcType="VARCHAR" property="mz" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="identificationType" jdbcType="VARCHAR" property="identificationtype" />
+    <result column="identificationNo" jdbcType="VARCHAR" property="identificationno" />
+    <result column="major1" jdbcType="VARCHAR" property="major1" />
+    <result column="major3" jdbcType="VARCHAR" property="major3" />
+    <result column="territory" jdbcType="VARCHAR" property="territory" />
+    <result column="DP" jdbcType="VARCHAR" property="dp" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="ZJJB" jdbcType="VARCHAR" property="zjjb" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="major2" jdbcType="VARCHAR" property="major2" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="SCORE" jdbcType="VARCHAR" property="score" />
+    <result column="CTYPE" jdbcType="VARCHAR" property="ctype" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="sign" jdbcType="VARCHAR" property="sign" />
+    <result column="nationalAward" jdbcType="LONGVARCHAR" property="nationalaward" />
+    <result column="provincialAward" jdbcType="LONGVARCHAR" property="provincialaward" />
+    <result column="school" jdbcType="LONGVARCHAR" property="school" />
+    <result column="research_field" jdbcType="LONGVARCHAR" property="researchField" />
+    <result column="BACKIDEA" jdbcType="LONGVARCHAR" property="backidea" />
+    <result column="FMZL" jdbcType="LONGVARCHAR" property="fmzl" />
+    <result column="topicState" jdbcType="LONGVARCHAR" property="topicstate" />
+    <result column="patent" jdbcType="LONGVARCHAR" property="patent" />
+    <result column="REMARKS" jdbcType="LONGVARCHAR" property="remarks" />
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+  </resultMap>
+</mapper>

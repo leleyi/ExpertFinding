@@ -18,9 +18,9 @@ import static com.company.project.core.ProjectConstant.*;
  */
 public class CodeGenerator {
     //JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://10.1.13.143:3306/doc";
+    private static final String JDBC_URL = "jdbc:mysql://10.1.13.117:33060/techpooldata"; //10.1.13.143:3306/doc
     private static final String JDBC_USERNAME = "root";
-    private static final String JDBC_PASSWORD = "lj151028";
+    private static final String JDBC_PASSWORD = "tdlabDatabase"; //
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 
     private static final String PROJECT_PATH = System.getProperty("user.dir");//项目在硬盘上的基础路径
@@ -38,7 +38,7 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
 
-        genCode("user");
+        genCode("paper","expert_paper_join","expert");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 

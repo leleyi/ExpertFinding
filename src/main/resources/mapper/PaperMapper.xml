@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.PaperMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Paper">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="PAPER_ID" jdbcType="VARCHAR" property="paperId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="authors" jdbcType="VARCHAR" property="authors" />
+    <result column="authors_code" jdbcType="VARCHAR" property="authorsCode" />
+    <result column="first_organization" jdbcType="VARCHAR" property="firstOrganization" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="first_author" jdbcType="VARCHAR" property="firstAuthor" />
+    <result column="first_author_unit" jdbcType="VARCHAR" property="firstAuthorUnit" />
+    <result column="first_author_baidu" jdbcType="VARCHAR" property="firstAuthorBaidu" />
+    <result column="first_author_code" jdbcType="VARCHAR" property="firstAuthorCode" />
+    <result column="second_author" jdbcType="VARCHAR" property="secondAuthor" />
+    <result column="second_author_unit" jdbcType="VARCHAR" property="secondAuthorUnit" />
+    <result column="second_author_baidu" jdbcType="VARCHAR" property="secondAuthorBaidu" />
+    <result column="second_author_code" jdbcType="VARCHAR" property="secondAuthorCode" />
+    <result column="third_author" jdbcType="VARCHAR" property="thirdAuthor" />
+    <result column="third_author_unit" jdbcType="VARCHAR" property="thirdAuthorUnit" />
+    <result column="third_author_baidu" jdbcType="VARCHAR" property="thirdAuthorBaidu" />
+    <result column="third_author_code" jdbcType="VARCHAR" property="thirdAuthorCode" />
+    <result column="fourth_author" jdbcType="VARCHAR" property="fourthAuthor" />
+    <result column="fourth_author_unit" jdbcType="VARCHAR" property="fourthAuthorUnit" />
+    <result column="fourth_author_baidu" jdbcType="VARCHAR" property="fourthAuthorBaidu" />
+    <result column="fourth_author_code" jdbcType="VARCHAR" property="fourthAuthorCode" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="citations" jdbcType="VARCHAR" property="citations" />
+    <result column="downloads" jdbcType="VARCHAR" property="downloads" />
+    <result column="classification_str" jdbcType="VARCHAR" property="classificationStr" />
+    <result column="classification" jdbcType="VARCHAR" property="classification" />
+    <result column="zw_paper_code" jdbcType="VARCHAR" property="zwPaperCode" />
+    <result column="zw_subject_code" jdbcType="VARCHAR" property="zwSubjectCode" />
+    <result column="subject_code" jdbcType="VARCHAR" property="subjectCode" />
+    <result column="subject_code_old" jdbcType="VARCHAR" property="subjectCodeOld" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="area_code" jdbcType="VARCHAR" property="areaCode" />
+    <result column="journal_name" jdbcType="VARCHAR" property="journalName" />
+    <result column="journal_no" jdbcType="VARCHAR" property="journalNo" />
+    <result column="journal_quality" jdbcType="VARCHAR" property="journalQuality" />
+    <result column="journal_url" jdbcType="VARCHAR" property="journalUrl" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="unit_type" jdbcType="VARCHAR" property="unitType" />
+    <result column="abstract" jdbcType="LONGVARCHAR" property="paperAbstract" />
+  </resultMap>
+</mapper>
