@@ -1,11 +1,11 @@
 package com.conpany.project;
 
-import com.company.project.core.Service;
 import com.company.project.model.Paper;
 import com.company.project.service.PaperService;
-import com.company.project.service.impl.PaperServiceImpl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.*;
 
 public class PaperTester extends Tester {
     @Autowired
@@ -13,7 +13,8 @@ public class PaperTester extends Tester {
 
     @Test
     public void getPaper() {
-        Paper paper =  paperService.findById(1507428);
+        Paper paper = paperService.findById(1507428);
         System.out.println(paper.getAbstract());
     }
 }
+
