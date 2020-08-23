@@ -16,5 +16,7 @@ public class PaperTester extends Tester {
         Paper paper = paperService.findById(1507428);
         System.out.println(paper.getAbstract());
     }
+
+
 }
 
