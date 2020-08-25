@@ -116,9 +116,15 @@ public class ESTester extends Tester {
 
     /**
      * add the dense vector
-      */
+     */
     @Test
-    public void addMapping(){
+    public void addMapping() {
 
     }
+
+    @Test
+    public void getEmbeddingTest() {
+
+    }
+
 }
