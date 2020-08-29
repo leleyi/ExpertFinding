@@ -23,7 +23,9 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class ESTester extends Tester {
@@ -90,18 +92,25 @@ public class ESTester extends Tester {
         }
         List<Paper> byIds = paperService.findByIds(ids.substring(0, ids.length() - 1));
 
+
         BulkRequest bulkRequest = new BulkRequest();
         ObjectMapper mapper = new ObjectMapper();
+        OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("paper.json"), "UTF-8");
         for (Paper write :
                 byIds) {
             Paper2Search paper2Search = new Paper2Search(write.getName(), write.getAuthors(), write.getAbstract());
             String jsonString = mapper.writeValueAsString(paper2Search);
+            System.out.println(jsonString);
+            osw.append(jsonString);
             bulkRequest.add(new IndexRequest("paper").id(String.valueOf(write.getId()))
                     .source(jsonString, XContentType.JSON));
         }
+        osw.flush();
+        osw.close();
 
-        BulkResponse bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);
-        System.out.println(bulkResponse.status());
+
+//        BulkResponse bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);
+//        System.out.println(bulkResponse.status());
     }
 
     @Test
@@ -122,8 +131,19 @@ public class ESTester extends Tester {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void getEmbeddingTest() {
+
+    }
+
+    /**
+     * upload dense vector to elastic
+     */
+    @Test
+    public void insertEmbedding() {
 
     }
 
