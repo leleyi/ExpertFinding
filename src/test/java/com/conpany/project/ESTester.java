@@ -26,13 +26,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.IntStream;
 
 public class ESTester extends Tester {
     @Autowired
     PaperService paperService;
 
     RestHighLevelClient client = ESClient.getClient();
+    private ByteBuffer byteBuffer;
 
 
     @Test
@@ -95,18 +102,27 @@ public class ESTester extends Tester {
 
         BulkRequest bulkRequest = new BulkRequest();
         ObjectMapper mapper = new ObjectMapper();
-        OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("paper.json"), "UTF-8");
+
+        /**OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("paper.json"), "UTF-8");
+         osw.flush();
+         osw.close(); */
+        FileOutputStream fileOutputStream = new FileOutputStream("paper.json");
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
+
         for (Paper write :
                 byIds) {
             Paper2Search paper2Search = new Paper2Search(write.getName(), write.getAuthors(), write.getAbstract());
             String jsonString = mapper.writeValueAsString(paper2Search);
-            System.out.println(jsonString);
-            osw.append(jsonString);
+
+            String str = write.getId() + " " + paper2Search.getName() + paper2Search.getPaparAbstract() + "\n";
+            outputStreamWriter.append(str);
+
             bulkRequest.add(new IndexRequest("paper").id(String.valueOf(write.getId()))
                     .source(jsonString, XContentType.JSON));
         }
-        osw.flush();
-        osw.close();
+
+        outputStreamWriter.flush();
+        outputStreamWriter.close();
 
 
 //        BulkResponse bulkResponse = client.bulk(bulkRequest, RequestOptions.DEFAULT);
@@ -122,6 +138,7 @@ public class ESTester extends Tester {
         SearchResponse searchResponse = client.search(searchRequest, RequestOptions.DEFAULT);
         System.out.println(searchResponse.getHits().getTotalHits());
     }
+
 
     /**
      * add the dense vector

@@ -128,11 +128,11 @@
             <version>7.8.1</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.elasticsearch.client</groupId>-->
-<!--            <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
-<!--            <version>7.8.1</version>-->
-<!--        </dependency>`-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.elasticsearch.client</groupId>-->
+        <!--            <artifactId>elasticsearch-rest-high-level-client</artifactId>-->
+        <!--            <version>7.8.1</version>-->
+        <!--        </dependency>`-->
 
         <!--        3.junit-->
         <!--        <dependency>-->
@@ -168,6 +168,12 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.42.Final</version>
+        </dependency>
 
     </dependencies>
 
