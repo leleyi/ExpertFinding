@@ -11,5 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SemanticSearchController {
 
     public void  semanticSearch(@RequestParam String query){
+        return;
     }
 }
