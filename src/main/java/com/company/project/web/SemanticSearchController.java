@@ -11,6 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class SemanticSearchController {
 
     public void  semanticSearch(@RequestParam String query){
+
         return;
     }
+    public int[] getTopK(@RequestParam String query,int  k){
+
+        return null;
+    }
+    public int[] similarityGT(@RequestParam Double similarity){
+
+        return null;
+    }
+
 }
