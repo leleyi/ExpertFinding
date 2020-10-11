@@ -18,9 +18,15 @@ public class SemanticSearchController {
 
         return null;
     }
-    public int[] similarityGT(@RequestParam Double similarity){
+    public int[] getSimilarityGT(@RequestParam Double similarity, @RequestParam String query){
 
         return null;
+    }
+    public int[] getFarestTopk(@RequestParam String query, int k){
+        return null;
+    }
+    public int[] getAuthors(@RequestParam String query, @RequestParam int k){
+       return  null;
     }
 
 }
